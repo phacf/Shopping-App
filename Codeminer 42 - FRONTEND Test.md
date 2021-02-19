@@ -7,3 +7,4 @@
 - React - Redux 7.2
 - Redux - Thunk 2.3
 - Axios 0.21
+- Redux-sauce 1.2.0

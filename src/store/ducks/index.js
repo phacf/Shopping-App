@@ -5,15 +5,30 @@ const ActionsType = {
   GET_DISCOUNT: "@shop/GET_DISCOUNT",
 };
 
-const Actions = {
-  getProducts: (products) => ({
-    type: ActionsType.GET_PRODUCTS,
-    products,
-  }),
-  getDiscounts: (discounts) => ({
-    type: ActionsType.GET_DISCOUNT,
-    discounts,
-  }),
+//         ACTIONS
+const getProducts = (products) => ({
+  type: ActionsType.GET_PRODUCTS,
+  products,
+});
+const getDiscounts = (discounts) => ({
+  type: ActionsType.GET_DISCOUNT,
+  discounts,
+});
+
+//     THUNK
+export const getProductsThunk = () => (dispatch) => {
+  axios("https://shielded-wildwood-82973.herokuapp.com/products.json")
+    .then((res) => {
+      dispatch(getProducts(res.data.products));
+    })
+    .catch((error) => console.log(error));
+};
+export const getDiscountsThunk = () => (dispatch) => {
+  axios("https://shielded-wildwood-82973.herokuapp.com/vouchers.json")
+    .then((res) => {
+      dispatch(getDiscounts(res.data.vouchers));
+    })
+    .catch((error) => console.log(error));
 };
 
 const reducer_state = {
@@ -21,15 +36,15 @@ const reducer_state = {
   discounts: {},
 };
 
-const reducer = (state = reducer_state, actions) => {
-  switch (ActionsType) {
+const Reducer = (state = reducer_state, action) => {
+  switch (action.type) {
     case ActionsType.GET_PRODUCTS:
-      const { products } = actions;
+      const { products } = action;
       reducer_state.products = products;
       return state;
 
     case ActionsType.GET_DISCOUNT:
-      const { discounts } = actions;
+      const { discounts } = action;
       reducer_state.discounts = discounts;
       return state;
 
@@ -37,17 +52,4 @@ const reducer = (state = reducer_state, actions) => {
       return state;
   }
 };
-export default reducer;
-
-export const Thunk = {
-  getProducts: () => (dispatch) => {
-    axios(
-      "https://shielded-wildwood-82973.herokuapp.com/products.json"
-    ).then((res) => console.log(res));
-  },
-  getDiscounts: () => (dispatch) => {
-    axios(
-      "https://shielded-wildwood-82973.herokuapp.com/vouchers.json"
-    ).then((res) => console.log(res));
-  },
-};
+export default Reducer;
