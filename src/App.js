@@ -1,18 +1,25 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { getDiscountsThunk, getProductsThunk } from "./store/ducks";
+import ProductList from "./components/ProductsList";
 
 function App() {
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.reducer.products);
-  const discounts = useSelector((state) => state.reducer.discounts);
+  const [pLoading, setPLoading] = useState(true);
+  const [dLoading, setDLoading] = useState(true);
+  const [pError, setPError] = useState(false)
+  const [dError, setDError] = useState(false)
 
   useEffect(() => {
-    dispatch(getProductsThunk());
-    dispatch(getDiscountsThunk());
+    dispatch(getProductsThunk(setPLoading, setPError));
+    dispatch(getDiscountsThunk(setDLoading, setDError));
   }, []);
-
-  return <div>asdf</div>;
+  
+  return (
+    <div>
+      <ProductList loading={pLoading} error = {pError} />
+    </div>
+  );
 }
 
 export default App;

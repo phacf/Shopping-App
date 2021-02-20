@@ -16,24 +16,30 @@ const getDiscounts = (discounts) => ({
 });
 
 //     THUNK
-export const getProductsThunk = () => (dispatch) => {
+export const getProductsThunk = (setLoading, setError) => (dispatch) => {
   axios("https://shielded-wildwood-82973.herokuapp.com/products.json")
     .then((res) => {
       dispatch(getProducts(res.data.products));
+      setLoading(false);
     })
-    .catch((error) => console.log(error));
+    .catch((error) => {
+      setError(true)
+      console.error(error)
+    });
 };
-export const getDiscountsThunk = () => (dispatch) => {
+
+export const getDiscountsThunk = (setLoading, setError) => (dispatch) => {
   axios("https://shielded-wildwood-82973.herokuapp.com/vouchers.json")
-    .then((res) => {
-      dispatch(getDiscounts(res.data.vouchers));
-    })
-    .catch((error) => console.log(error));
+    .then((res) => dispatch(getDiscounts(res.data.vouchers)))
+    .catch((error) => {
+      setError(true)
+      console.error(error)
+    });
 };
 
 const reducer_state = {
-  products: {},
-  discounts: {},
+  products: [],
+  discounts: [],
 };
 
 const Reducer = (state = reducer_state, action) => {
