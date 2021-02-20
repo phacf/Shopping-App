@@ -1,23 +1,26 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getDiscountsThunk, getProductsThunk } from "./store/ducks";
-import ProductList from "./components/ProductsList";
+import "./app.css";
+import ProductList from "./components/ProductsList/";
+import Cart from "./components/Cart";
 
 function App() {
   const dispatch = useDispatch();
-  const [pLoading, setPLoading] = useState(true);
-  const [dLoading, setDLoading] = useState(true);
-  const [pError, setPError] = useState(false)
-  const [dError, setDError] = useState(false)
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
-    dispatch(getProductsThunk(setPLoading, setPError));
-    dispatch(getDiscountsThunk(setDLoading, setDError));
-  }, []);
-  
+    if (error || loading) {
+      dispatch(getProductsThunk(setLoading, setError));
+      dispatch(getDiscountsThunk(setLoading, setError));
+    }
+  }, [error, loading, dispatch]);
+
   return (
-    <div>
-      <ProductList loading={pLoading} error = {pError} />
+    <div className="container">
+      <ProductList loading={loading} error={error} />
+      <Cart />
     </div>
   );
 }

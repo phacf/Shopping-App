@@ -1,10 +1,7 @@
 # Shopping Cart
 ## Technologies
-- ReactJs 17.0.1
-- HTML 5
-- CSS 3
-- JavaScript
-- React - Redux 7.2
-- Redux - Thunk 2.3
-- Axios 0.21
-- Redux-sauce 1.2.0
+- axios: 0.21.1
+- react: 17.0.1
+- react-redux: 7.2.2
+- redux: 4.0.5
+- redux-thunk: 2.3.0
