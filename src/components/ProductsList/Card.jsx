@@ -5,7 +5,7 @@ const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
 
   const sendToCart = () => {
-    product = { ...product, amound: 1 };
+    product = { ...product, ...{ amount: 1, subTotal: product.price } };
     dispatch(sendToCartThunk(product));
   };
 
