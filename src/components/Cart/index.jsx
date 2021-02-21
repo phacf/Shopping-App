@@ -3,29 +3,50 @@ import { useSelector } from "react-redux";
 import CartCard from "./CartCard";
 
 const Cart = () => {
-  const discounts = useSelector((state) => state.reducer.discounts);
+  const vouchers = useSelector((state) => state.reducer.discounts);
   const cart = useSelector((state) => state.reducer.cart);
   const [subTotal, setSub] = useState(0);
   const [inputVoucher, setInput] = useState("");
-  const [discount, setDiscount] = useState(10);
-  const shipping = 10;
+  const [discount, setDiscount] = useState(0);
+  const [shipping, setShip] = useState(100);
 
   const calculateTotal = (product) => {
     const subTotal = cart.reduce(
       (acumulator, next) => acumulator + next.subTotal,
       0
     );
-    //.toFixed(2);
     setSub(subTotal);
   };
-  //console.log(discounts);
 
-  const handleSubmit = () => {
-    console.log(inputVoucher);
+  const handleDiscount = () => {
+    let voucher = vouchers.find(
+      (voucher) => voucher.code.toLowerCase() === inputVoucher.toLowerCase()
+    );
+
+    if (voucher) {
+      switch (voucher.code) {
+        case "#30OFF":
+          setDiscount((subTotal * 30) / 100);
+          break;
+
+        case "#100DOLLARS":
+          setDiscount(100);
+          break;
+
+        case "#SHIPIT":
+          setShip(0);
+          setDiscount(0)
+          break;
+        default:
+          setDiscount(0);
+          break;
+      }
+    } else {
+      setDiscount(0);
+    }
   };
 
-
-
+  console.log(vouchers);
   return (
     <div>
       {cart.map((product, index) => (
@@ -42,12 +63,13 @@ const Cart = () => {
         id="voucher"
         onChange={(e) => setInput(e.target.value)}
       />
-      <button onClick={() => handleSubmit()}>apply</button>
+      <button onClick={() => handleDiscount()}>apply</button>
 
       <div>Subtotal: ${subTotal}</div>
       <div>Shipping: ${shipping}</div>
       <div>Discount: ${discount}</div>
       <div>Total: $ {subTotal + shipping - discount}</div>
+      
     </div>
   );
 };
