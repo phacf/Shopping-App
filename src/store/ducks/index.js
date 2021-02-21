@@ -4,6 +4,7 @@ const ActionsType = {
   GET_PRODUCTS: "@shop/GET_PRODUCTS",
   GET_DISCOUNT: "@shop/GET_DISCOUNT",
   SEND_TO_CART: "@client/SEND_TO_CART",
+  CHECKOUT: "@client/CHECKOUT",
 };
 
 //         ACTIONS
@@ -20,6 +21,10 @@ const getDiscounts = (discounts) => ({
 const sendToCart = (product) => ({
   type: ActionsType.SEND_TO_CART,
   product,
+});
+
+const checkout = () => ({
+  type: ActionsType.CHECKOUT,
 });
 
 //     THUNK
@@ -51,6 +56,10 @@ export const sendToCartThunk = (product) => (dispatch) => {
   dispatch(sendToCart(product));
 };
 
+export const checkoutThunk = () => (dispatch) => {
+  dispatch(checkout());
+};
+
 //    REDUCER
 const reducer_state = {
   products: [],
@@ -79,7 +88,10 @@ const Reducer = (state = reducer_state, action) => {
       ) {
         reducer_state.cart = [...reducer_state.cart, product];
       }
+      return state;
 
+    case ActionsType.CHECKOUT:
+      reducer_state.cart = [];
       return state;
 
     default:

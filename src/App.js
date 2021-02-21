@@ -9,6 +9,7 @@ function App() {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [checkout, setCheckout] = useState(0);
 
   useEffect(() => {
     if (error || loading) {
@@ -19,8 +20,12 @@ function App() {
 
   return (
     <div className="container">
-      <ProductList loading={loading} error={error} />
-      <Cart />
+      <div className="shopContainer">
+        <ProductList loading={loading} error={error} />
+      </div>
+      <div className="cartContainer">
+        <Cart setCheckout={setCheckout} checkout={checkout} />
+      </div>
     </div>
   );
 }

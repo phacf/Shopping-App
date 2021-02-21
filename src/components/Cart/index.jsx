@@ -1,9 +1,12 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { checkoutThunk } from "../../store/ducks";
 import CartCard from "./CartCard";
 
-const Cart = () => {
+const Cart = ({ setCheckout, checkout }) => {
+  const dispatch = useDispatch();
   const vouchers = useSelector((state) => state.reducer.discounts);
+  const products = useSelector((state) => state.reducer.products);
   const cart = useSelector((state) => state.reducer.cart);
   const [subTotal, setSub] = useState(0);
   const [inputVoucher, setInput] = useState("");
@@ -35,7 +38,7 @@ const Cart = () => {
 
         case "#SHIPIT":
           setShip(0);
-          setDiscount(0)
+          setDiscount(0);
           break;
         default:
           setDiscount(0);
@@ -44,9 +47,26 @@ const Cart = () => {
     } else {
       setDiscount(0);
     }
+    setInput("");
   };
 
-  console.log(vouchers);
+  const handleCheckout = () => {
+    cart.forEach((element) => {
+      products.find((product) => {
+        if (product.name === element.name) {
+          product.available -= element.amount;
+        }
+        return null;
+      });
+    });
+    dispatch(checkoutThunk());
+    setSub(0);
+    setDiscount(0);
+    setShip(100);
+    setInput("");
+    setCheckout((checkout = checkout + 1));
+  };
+
   return (
     <div>
       {cart.map((product, index) => (
@@ -58,6 +78,7 @@ const Cart = () => {
       ))}
 
       <input
+        value={inputVoucher}
         type="text"
         name="voucher"
         id="voucher"
@@ -69,7 +90,7 @@ const Cart = () => {
       <div>Shipping: ${shipping}</div>
       <div>Discount: ${discount}</div>
       <div>Total: $ {subTotal + shipping - discount}</div>
-      
+      <button onClick={() => handleCheckout()}>CHECKOUT</button>
     </div>
   );
 };

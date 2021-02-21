@@ -20,7 +20,7 @@ const ProductCard = ({ product }) => {
       <div>
         Price: ${product.price} &#8226; {product.available} Left
       </div>
-      <button onClick={() => sendToCart()}> send to cart</button>
+      <button onClick={() => sendToCart()} disabled={product.available === 0}> send to cart</button>
     </div>
   );
 };

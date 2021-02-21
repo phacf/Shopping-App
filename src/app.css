@@ -1,5 +1,12 @@
 .container {
+  padding: 20px;
   width: 100%;
-  border: 1px solid black;
   display: flex;
+}
+.shopContainer {
+  width: 60%;
+}
+
+.cartContainer {
+  width: 40%;
 }
