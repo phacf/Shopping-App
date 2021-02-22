@@ -1,0 +1,152 @@
+@media only screen and (min-width: 248px) {
+  .taxHeader {
+    color: #333333;
+    font-size: 4vh;
+    font-weight: bold;
+    background-color: #999999;
+    display: flex;
+    justify-content: center;
+    padding: 2vh 2vw 2vh 2vw;
+    align-items: center;
+    border-radius: 10px 10px 0px 0px;
+  }
+  .taxesContainer {
+    border-radius: 10px;
+    margin-top: 3vh;
+    
+    background-color: #e2e2e2;
+    height: fit-content;
+    margin: 8vh 0vw 5vh 0vw;
+    width: 100%;
+  }
+  .taxes {
+    width: 100%;
+    background-color: #e2e2e2;
+    border-radius: 10px 10px 10px 10px;
+  }
+  .taxes .tax {
+    padding: 3vh 2vw 3vh 2vw;
+    text-align: center;
+    border-top: 1px solid #999999;
+    color: #999;
+    font-size: 2vh;
+    display: flex;
+    justify-content: space-between;
+    padding: 3vh 2vw 3vh 2vw;
+  }
+  .taxTotal{
+    padding: 3vh 2vw 3vh 2vw;
+    text-align: center;
+    border-top: 1px solid #999999;
+    color: #333;
+    font-size: 2vh;
+    display: flex;
+    justify-content: space-between;
+  }
+  .checkout {
+    padding: 2vh;
+    margin-top: 2vh;
+    text-align: center;
+    color: #cecece;
+    background-color: #333333;
+    font-weight: bold;
+    font-size: 3vh;
+    border-radius: 10px 10px 10px 10px;
+    cursor: pointer;
+  }
+  .cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+    width: 100%;
+    height: 30vh;
+  }
+  .cartCard {
+    display: flex;
+    position: relative;
+    width: 90%;
+    height: fit-content;
+    background-color: #d8d8d8;
+    margin: 2vh 2vw 0vh 2vw;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+  }
+  .cartCard img {
+    height: 12vh;
+    width: 1vw;
+    border-radius: 8px 0px 0px 8px;
+    margin-right: 1vw;
+  }
+  .cartDesc {
+    display: flex;
+    width: 90%;
+    height: 100%;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    color:#999
+  }
+  .buttonContainer {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height: 100%;
+  
+  }
+  .buttonContainer div {
+    background-color: #d8d8d8;
+    height: 50%;
+    border: 1px solid #bbb;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3vh;
+    cursor: pointer;
+  }
+  .voucherContainer {
+    width: 100%;
+    height: 9vh;
+    display: flex;
+    justify-content: space-between;
+    padding: 2vh 2vw 2vh 2vw;
+    align-items: center;
+    border-top: 1px solid #999999;
+    
+  }
+  .voucherContainer input {
+    width: 60%;
+    height: 95%;
+  }
+  .applyButton {
+    color: #cecece;
+    width: 30%;
+    background-color: #333333;
+    height: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+  }
+}
+@media only screen and (min-width: 480px) {
+}
+@media only screen and (min-width: 600px) {
+  .taxesContainer {
+    width: 70%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .taxesContainer {
+    width: 100%;
+    margin-right: 2vw;
+  }
+}
+@media only screen and (min-width: 992px) {
+}
+@media only screen and(min-width: 1382px) {
+  .taxesContainer {
+    width: 80%;
+  }
+}

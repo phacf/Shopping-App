@@ -28,18 +28,23 @@ const CartCard = ({ product, calculateTotal }) => {
   };
   calculateTotal(product);
   return (
-    <div>
+    <div className="cartCard">
       <img
         style={{ width: "100px" }}
         alt="foto"
         src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flibrary.ucf.edu%2Fwp-content%2Fuploads%2Fsites%2F5%2F2015%2F08%2Fphoto-not-available.jpg&f=1&nofb=1"
       />
-      <h3>{product.name}</h3>
-      <div>{price}</div>
-      <span>
-        <button onClick={() => increaseamount()}>+</button>
-        {amount}
-        <button onClick={() => decreaseamount()}>-</button>
+      <div style={{ width: "100%", 'padding-top':'2vh', 'padding-bottom':'3vh'}}>
+        <h3 style={{color: '#333333'}}>{product.name}</h3>
+        <div className="cartDesc">
+        Quantity:{" "}{amount}
+
+          <span>$: {price}</span>
+        </div>
+      </div>
+      <span className="buttonContainer">
+        <div style={{'border-radius': '0px 8px 0px 0px'}} onClick={() => increaseamount()}>+</div>
+        <div style={{'border-radius': '0px 0px 8px 0px'}} onClick={() => decreaseamount()}>-</div>
       </span>
     </div>
   );

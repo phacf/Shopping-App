@@ -1,0 +1,74 @@
+@media only screen and (min-width: 280px) {
+  .shopContainer1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+  .shopCard {
+    position: relative;
+    width: 65vw;
+    background-color: #efefef;
+    border-radius: 10px;
+    margin: 8vh 2vw 5vh 0vw;
+    
+    
+  }
+  .shopCard img {
+    border-radius: 10px 10px 0px 0px;
+    width: 100%;
+    height: 60%;
+  }
+  .title {
+    width: 100%;
+    text-align: center;
+    margin-top: 2vh;
+    font-size: 2.5vh;
+    color: #333333;
+  }
+  .description {
+    width: 100%;
+    margin-top: 1vh;
+    margin-bottom: 10vh;
+    text-align: center;
+    font-size: 2vh;
+    color: #999999;
+  }
+  .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0px 0px 10px 10px;
+    width: 100%;
+    height: 5vh;
+    position: absolute;
+    bottom: 0;
+    font-weight: bolder;
+    font-size: 2.5vh;
+    padding: 3vh;
+    color: #eaeaea;
+    background-color: #333333;
+    cursor: pointer;
+  }
+}
+@media only screen and (min-width: 480px) {
+  .shopCard {
+    width: 40vw;
+  }
+}
+@media only screen and (min-width: 768px) {
+ 
+  .shopCard {
+    width: 20vw;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .shopCard {
+    width: 15vw;
+  }
+}
+@media only screen and (min-width: 1382px){
+  .shopCard {
+    width: 15vw;
+  }
+}
