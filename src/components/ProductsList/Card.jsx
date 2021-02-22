@@ -19,7 +19,7 @@ const ProductCard = ({ product }) => {
       <div className="description">
         $ {product.price} &#8226; {product.available} Left
       </div>
-      <div className='button' onClick={() => sendToCart()} disabled={product.available === 0}>
+      <div className='button' onClick={() => product.available> 0 && sendToCart()} >
         BUY
       </div>
     </div>
