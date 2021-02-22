@@ -42,10 +42,10 @@
 @media only screen and (min-width: 768px) {
   .appContainer .shopContainer {
     
-    width: 70%;
+    width: 65%;
   }
   .appContainer .cartContainer {
     
-    width: 30%;
+    width: 35%;
   }
 }

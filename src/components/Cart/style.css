@@ -1,7 +1,7 @@
 @media only screen and (min-width: 248px) {
   .taxHeader {
     color: #333333;
-    font-size: 4vh;
+    font-size: 3.5vh;
     font-weight: bold;
     background-color: #999999;
     display: flex;
@@ -13,7 +13,7 @@
   .taxesContainer {
     border-radius: 10px;
     margin-top: 3vh;
-    
+
     background-color: #e2e2e2;
     height: fit-content;
     margin: 8vh 0vw 5vh 0vw;
@@ -29,17 +29,17 @@
     text-align: center;
     border-top: 1px solid #999999;
     color: #999;
-    font-size: 2vh;
+    font-size: 2.3vh;
     display: flex;
     justify-content: space-between;
     padding: 3vh 2vw 3vh 2vw;
   }
-  .taxTotal{
+  .taxTotal {
     padding: 3vh 2vw 3vh 2vw;
     text-align: center;
     border-top: 1px solid #999999;
     color: #333;
-    font-size: 2vh;
+    font-size: 2.3vh;
     display: flex;
     justify-content: space-between;
   }
@@ -85,14 +85,13 @@
     position: relative;
     justify-content: space-between;
     align-items: center;
-    color:#999
+    color: #999;
   }
   .buttonContainer {
     display: flex;
     flex-direction: column;
     width: 20%;
     height: 100%;
-  
   }
   .buttonContainer div {
     background-color: #d8d8d8;
@@ -102,32 +101,35 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3vh;
+    font-size: 2.5vh;
     cursor: pointer;
   }
   .voucherContainer {
     width: 100%;
-    height: 9vh;
+    height: 10vh;
     display: flex;
     justify-content: space-between;
     padding: 2vh 2vw 2vh 2vw;
     align-items: center;
-    border-top: 1px solid #999999;
     
   }
   .voucherContainer input {
     width: 60%;
-    height: 95%;
+    height: 98%;
+    padding-left: 2%;
+    outline: none;
   }
   .applyButton {
-    color: #cecece;
+    color: #eaeaea;
     width: 30%;
+    font-size: 2vh;
+    font-weight: bold;
     background-color: #333333;
     height: 95%;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 6px;
+    border-radius: 7px;
   }
 }
 @media only screen and (min-width: 480px) {

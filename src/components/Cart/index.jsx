@@ -38,8 +38,10 @@ const Cart = ({ setCheckout, checkout }) => {
           break;
 
         case "#SHIPIT":
-          setShip(0);
-          setDiscount(0);
+          if (subTotal >= 300.50) {
+            setShip(0);
+            setDiscount(0);
+          }
           break;
         default:
           setDiscount(0);
@@ -69,48 +71,50 @@ const Cart = ({ setCheckout, checkout }) => {
   };
 
   return (
-  <div style={{width:'100%'}}>
-    <div className="taxesContainer">
-      <div className="taxHeader">Shopping Cart</div>
-      <div className="cart">
-        {cart.map((product, index) => (
-          <CartCard
-            product={product}
-            key={index}
-            calculateTotal={calculateTotal}
+    <div style={{ width: "100%" }}>
+      <div className="taxesContainer">
+        <div className="taxHeader">Shopping Cart</div>
+        <div className="cart">
+          {cart.map((product, index) => (
+            <CartCard
+              product={product}
+              key={index}
+              calculateTotal={calculateTotal}
+            />
+          ))}
+        </div>
+        <div className="voucherContainer">
+          <input
+            value={inputVoucher}
+            type="text"
+            name="voucher"
+            id="voucher"
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="Discount code"
           />
-        ))}
+          <div className="applyButton" onClick={() => handleDiscount()}>
+            APPLY
+          </div>
+        </div>
+        <div className="taxes">
+          <div className="tax">
+            <span>Subtotal:</span> <span>${subTotal}</span>
+          </div>
+          <div className="tax">
+            <span>Shipping:</span> <span>${shipping}</span>
+          </div>
+          <div className="tax">
+            <span>Discount:</span> <span>${discount}</span>
+          </div>
+          <div className="taxTotal">
+            <span>Total:</span> <span>${subTotal + shipping - discount}</span>
+          </div>
+        </div>
       </div>
-      <div className='voucherContainer'>
-        <input
-          value={inputVoucher}
-          type="text"
-          name="voucher"
-          id="voucher"
-          onChange={(e) => setInput(e.target.value)}
-          placeholder='Discount code'
-        />
-        <div className='applyButton' onClick={() => handleDiscount()}>Apply</div>
-      </div>
-      <div className="taxes">
-        <div className="tax">
-          <span>Subtotal:</span> <span>${subTotal}</span>
-        </div>
-        <div className="tax">
-          <span>Shipping:</span> <span>${shipping}</span>
-        </div>
-        <div className="tax">
-          <span>Discount:</span> <span>${discount}</span>
-        </div>
-        <div className="taxTotal">
-          <span>Total:</span> <span>${subTotal + shipping - discount}</span>
-        </div>
+      <div className="checkout" onClick={() => handleCheckout()}>
+        CHECKOUT
       </div>
     </div>
-        <div className="checkout" onClick={() => handleCheckout()}>
-          CHECKOUT
-        </div>
-        </div>
   );
 };
 export default Cart;

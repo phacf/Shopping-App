@@ -11,8 +11,6 @@
     background-color: #efefef;
     border-radius: 10px;
     margin: 8vh 2vw 5vh 0vw;
-    
-    
   }
   .shopCard img {
     border-radius: 10px 10px 0px 0px;
@@ -57,7 +55,6 @@
   }
 }
 @media only screen and (min-width: 768px) {
- 
   .shopCard {
     width: 20vw;
   }
@@ -67,7 +64,7 @@
     width: 15vw;
   }
 }
-@media only screen and (min-width: 1382px){
+@media only screen and (min-width: 1382px) {
   .shopCard {
     width: 15vw;
   }
