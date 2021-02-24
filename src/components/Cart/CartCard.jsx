@@ -17,7 +17,7 @@ const CartCard = ({ product, calculateTotal }) => {
   };
 
   const decreaseamount = () => {
-    if (amount > 1) {
+    if (amount > 0) {
       setamount(amount - 1);
       product.amount = amount - 1;
     }
