@@ -17,7 +17,8 @@ When performing the checkout, the stock values of the products are changed, prev
 <li>Redux-thunk: 2.3.0</li>
 </ul> 
 
-
+<a href="https://shopping-app-ashen.vercel.app/" ><h2>Vercel Deploy</h2></a>
+<p>--------------------------------------------------------------------------------------------------------------------------------------</p>
 <a href="https://github.com/phacf">
  <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/55549078?s=460&u=56ab76f6f4128968d460276fbfef4bf094be894d&v=4" width="100px;" alt=""/>
  <br />
