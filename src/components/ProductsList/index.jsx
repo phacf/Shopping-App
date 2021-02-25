@@ -5,7 +5,7 @@ const ProductList = ({ loading, error }) => {
   const products = useSelector((state) => state.reducer.products);
   
 
-  console.log(products)
+  
   return (
     <div className='shopContainer1'>
       {" "}
